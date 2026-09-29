@@ -272,7 +272,7 @@ info "Step 5/7 — Patching AndroidManifest.xml…"
 
 python3 -c "
 import re
-
+import sys
 path = '$MANIFEST'
 with open(path) as f:
     content = f.read()
