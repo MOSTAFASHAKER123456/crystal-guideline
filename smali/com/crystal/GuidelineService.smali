@@ -75,8 +75,7 @@
     const/16 v5, 0x228
     const/16 v6, -3        # PixelFormat.TRANSLUCENT
 
-    invoke-direct {v1, v2, v3, v4, v5, v6}, \
-        Landroid/view/WindowManager$LayoutParams;-><init>(IIIII)V
+    invoke-direct {v1, v2, v3, v4, v5, v6}, Landroid/view/WindowManager$LayoutParams;-><init>(IIIII)V
 
     # addView
     iget-object v2, p0, Lcom/crystal/GuidelineService;->wm:Landroid/view/WindowManager;
