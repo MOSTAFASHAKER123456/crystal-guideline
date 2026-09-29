@@ -61,7 +61,8 @@
     iput-object v0, p0, Lcom/crystal/GuidelineService;->view:Lcom/crystal/GuidelineView;
 
     # View must be hardware-accelerated for smooth redraws
-    const/high16 v1, 0x100  # View.LAYER_TYPE_HARDWARE = 2
+    # View.LAYER_TYPE_HARDWARE = 2
+    const/4 v1, 0x2
     const/4 v2, 0x0
     invoke-virtual {v0, v1, v2}, Landroid/view/View;->setLayerType(ILandroid/graphics/Paint;)V
 
@@ -69,13 +70,13 @@
     new-instance v1, Landroid/view/WindowManager$LayoutParams;
 
     const/16 v2, 0x7F6     # TYPE_APPLICATION_OVERLAY = 2038 = 0x7F6
-    const/4  v3, -1        # MATCH_PARENT width
-    const/4  v4, -1        # MATCH_PARENT height
+    const/4  v3, -0x1      # MATCH_PARENT width
+    const/4  v4, -0x1      # MATCH_PARENT height
     # FLAG_NOT_FOCUSABLE | FLAG_NOT_TOUCH_MODAL | FLAG_LAYOUT_IN_SCREEN
     const/16 v5, 0x228
-    const/16 v6, -3        # PixelFormat.TRANSLUCENT
+    const/16 v6, -0x3      # PixelFormat.TRANSLUCENT
 
-    invoke-direct {v1, v2, v3, v4, v5, v6}, Landroid/view/WindowManager$LayoutParams;-><init>(IIIII)V
+    invoke-direct/range {v1 .. v6}, Landroid/view/WindowManager$LayoutParams;-><init>(IIIII)V
 
     # addView
     iget-object v2, p0, Lcom/crystal/GuidelineService;->wm:Landroid/view/WindowManager;
