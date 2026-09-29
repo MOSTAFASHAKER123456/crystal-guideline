@@ -71,9 +71,9 @@ mkdir -p "$WORK_DIR" "$SCRIPT_DIR/dist"
 # STEP 1: DECOMPILE
 # ═══════════════════════════════════════════════════════════════
 info "Step 1/7 — Decompiling APK with apktool…"
-apktool d "$APK_IN" -o "$DECOMPILED" --no-res 2>/dev/null \
-    || apktool d "$APK_IN" -o "$DECOMPILED" \
+apktool d "$APK_IN" -o "$DECOMPILED" \
     || die "apktool failed to decompile"
+chmod -R 755 "$DECOMPILED"
 ok "Decompiled to $DECOMPILED"
 
 # ═══════════════════════════════════════════════════════════════
